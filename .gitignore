@@ -1,0 +1,36 @@
+# Built application files
+*.apk
+*.ap_
+*.aab
+# Files for the ART/Dalvik VM
+*.dex
+# Java class files
+*.class
+# Generated files
+bin/
+gen/
+out/
+# Gradle files
+.gradle/
+/build
+*/build
+captures/
+# Local configuration file (sdk path, etc) — у каждого свой, не для репозитория
+local.properties
+# Log files
+*.log
+# Android Studio / IntelliJ
+*.iml
+.idea/
+# External native build (NDK), если появится
+.externalNativeBuild
+.cxx/
+# Keystore — раскомментируй, если не хочешь коммитить ключ подписи
+#*.jks
+#*.keystore
+# OS
+.DS_Store
+Thumbs.db
+# Локальные настройки инструментов — не часть проекта
+.claude/
+.vscode/
