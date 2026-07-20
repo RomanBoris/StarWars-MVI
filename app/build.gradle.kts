@@ -1,12 +1,14 @@
 plugins {
     alias(libs.plugins.android.application)
+
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.ksp)
 }
 
 android {
     namespace = "com.pobezhkin.starwars_mvi"
     compileSdk {
-        version = release(36) {
+        version = release(37) {
             minorApiLevel = 1
         }
     }
@@ -14,7 +16,7 @@ android {
     defaultConfig {
         applicationId = "com.pobezhkin.starwars_mvi"
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 1
         versionName = "1.0"
 
@@ -53,4 +55,29 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
+
+    // DI
+    implementation(libs.dagger)
+    ksp(libs.dagger.compiler)
+
+    // Fragment-хост для Compose
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.fragment.ktx)
+
+    // Стабильность коллекций для Compose
+    implementation(libs.kotlinx.collections.immutable)
+
+    // Сеть
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging.interceptor)
+
+    // Локальный кэш
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
+
+
+
 }
