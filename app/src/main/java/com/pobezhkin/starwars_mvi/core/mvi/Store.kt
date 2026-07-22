@@ -60,8 +60,6 @@ class Store<Effect, State>(
             .launchIn(coroutineScope)
     }
 
-
-
     fun effect(effect: Effect) {
         coroutineScope.launch {
             effects.emit(effect)
