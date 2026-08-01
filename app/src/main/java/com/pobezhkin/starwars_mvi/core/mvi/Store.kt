@@ -56,7 +56,7 @@ class Store<Effect, State>(
             .onEach { coroutineScope.launch { internalEffects.emit(it) } }
 
         listOf(initEffects, effects, middleFlow).merge()
-            .onEach (::apply)
+            .onEach(::apply)
             .launchIn(coroutineScope)
     }
 
@@ -81,21 +81,23 @@ class Store<Effect, State>(
             internalEffects.asSharedFlow()
         ).merge(),
         stateFlow,
-    ).catch {e ->
+    ).catch { e ->
         data.logger.logWarning(TAG, "Exception in ${middleware.javaClass.name}", e)
         data.logger.logError(e)
         data.errorHandler(this, e)
 
-        if (data.retry < 0 || retryCount.incrementAndGet() <= data.retry){
+        if (data.retry < 0 || retryCount.incrementAndGet() <= data.retry) {
             emitAll(apply(middleware, emptyFlow(), retryCount))
         }
 
     }
 
-    private companion object {const val TAG = "Store" }
+    private companion object {
+        const val TAG = "Store"
+    }
 
 
 }
 
-fun <State, Effect> Model<State, Effect>.makeStore(data : StoreData<Effect, State>)
-        = Store(this, data)
+fun <State, Effect> Model<State, Effect>.makeStore(data: StoreData<Effect, State>) =
+    Store(this, data)
