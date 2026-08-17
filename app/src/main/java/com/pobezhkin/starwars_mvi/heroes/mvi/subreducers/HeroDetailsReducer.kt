@@ -24,10 +24,15 @@ internal class HeroDetailsReducer: Reducer<HeroesEffect.Details, HeroesState> {
                 else -> state
             }
 
+            is HeroesEffect.Details.Retry -> when(val current = state.step){
+                is Step.DetailsError -> state.copy(step = Step.DetailsLoading(current.heroUrl))
+                else -> state
+            }
+
             is HeroesEffect.Details.Back -> state.copy(
                 step = state.previousListStep ?: Step.ListLoading,
                 previousListStep = null
             )
-            else -> state
+
     }
 }
