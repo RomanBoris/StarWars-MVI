@@ -1,5 +1,6 @@
 package com.pobezhkin.starwars_mvi.heroes.mvi.middleware
 
+import com.pobezhkin.starwars_mvi.core.mvi.Middleware
 import com.pobezhkin.starwars_mvi.core.network.NetworkResult
 import com.pobezhkin.starwars_mvi.heroes.api.HeroesRepository
 import com.pobezhkin.starwars_mvi.heroes.mvi.HeroesEffect
@@ -11,9 +12,9 @@ import kotlinx.coroutines.flow.mapLatest
 
 class LoadHeroesMiddleware(
     private val repository: HeroesRepository
-) {
+) : Middleware<HeroesEffect, HeroesState> {
     @OptIn(ExperimentalCoroutinesApi::class)
-    fun invoke(
+    override fun invoke(
         effects: Flow<HeroesEffect>,
         state: Flow<HeroesState>
     ): Flow<HeroesEffect> = effects.filterIsInstance<HeroesEffect.List.Load>()
@@ -23,6 +24,7 @@ class LoadHeroesMiddleware(
                     heroes = result.data,
                     fromCache = result.fromCache
                 )
+
                 is NetworkResult.Error -> HeroesEffect.List.LoadFailed(result.error)
             }
         }
