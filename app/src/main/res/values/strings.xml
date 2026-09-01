@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">StarWars-MVI</string>
+
+    <string name="hero_height">Рост</string>
+    <string name="hero_mass">Вес</string>
+    <string name="hero_hair_color">Цвет волос</string>
+    <string name="hero_skin_color">Цвет кожи</string>
+    <string name="hero_eye_color">Цвет глаз</string>
+    <string name="hero_homeworld">Родная планета</string>
+    <string name="hero_birth_year">Год рождения</string>
+    <string name="hero_gender">Пол</string>
+    <string name="hero_card_subtitle">Рост %1$s · Родился %2$s</string>
+    <string name="offline_banner">Показаны сохранённые данные</string>
+    <string name="error_no_internet">Нет подключения к интернету</string>
+    <string name="error_http">Ошибка сервера: %1$d</string>
+    <string name="error_unknown">Что-то пошло не так</string>
 </resources>
