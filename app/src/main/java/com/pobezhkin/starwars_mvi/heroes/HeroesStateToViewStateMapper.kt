@@ -11,7 +11,7 @@ import com.pobezhkin.starwars_mvi.heroes.submappers.HeroListToViewStateMapper
 import com.pobezhkin.starwars_mvi.heroes.submappers.NetworkErrorTextMapper
 
 class HeroesStateToViewStateMapper(
-    val context: Context
+  private  val context: Context
 ) : (HeroesState) -> HeroesViewState {
 
     private val listMapper = HeroListToViewStateMapper(context)

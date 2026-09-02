@@ -39,6 +39,10 @@ class HeroDetailsToViewStateMapper(
             StepViewState.HeroDetails.DetailRow(
                 context.getString(R.string.hero_gender),
                 step.hero.gender
+            ),
+            StepViewState.HeroDetails.DetailRow(
+                context.getString(R.string.hero_birth_year),
+                step.hero.birthYear
             )
         ),
         offlineBanner = if (step.fromCache) context.getString(R.string.offline_banner) else null,
