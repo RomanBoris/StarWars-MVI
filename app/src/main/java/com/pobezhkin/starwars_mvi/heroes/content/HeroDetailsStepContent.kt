@@ -29,7 +29,7 @@ fun HeroDetailsStepContent(
     Column(modifier = modifier.fillMaxSize()) {
         TextButton(
             onClick = { effect(HeroesEffect.Details.Back) },
-            modifier = Modifier.padding(8.dp)
+          //  modifier = Modifier.padding(8.dp)
         ) {
             Text("← Назад")
         }
