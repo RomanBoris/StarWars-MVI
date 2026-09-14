@@ -58,6 +58,7 @@ dependencies {
 
     //Модули
     implementation(project(":core"))
+    implementation(project(":heroes:api"))
 
     // DI
     implementation(libs.dagger)
