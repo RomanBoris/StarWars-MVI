@@ -1,8 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
-
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlin.jvm) apply false
 }
 
 android {
@@ -56,6 +56,9 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
 
+    //Модули
+    implementation(project(":core"))
+
     // DI
     implementation(libs.dagger)
     ksp(libs.dagger.compiler)
@@ -77,7 +80,6 @@ dependencies {
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
     ksp(libs.androidx.room.compiler)
-
 
 
 }

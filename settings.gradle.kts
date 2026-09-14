@@ -24,4 +24,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "StarWars-MVI"
 include(":app")
- 
+include(":core")
