@@ -1,7 +1,7 @@
 package com.pobezhkin.starwars_mvi.heroes.submappers
 
 import android.content.Context
-import com.pobezhkin.starwars_mvi.R
+import com.pobezhkin.starwars_mvi.heroes.R
 import com.pobezhkin.starwars_mvi.heroes.HeroesViewState.StepViewState
 import com.pobezhkin.starwars_mvi.heroes.mvi.HeroesState.Step
 import kotlinx.collections.immutable.persistentListOf

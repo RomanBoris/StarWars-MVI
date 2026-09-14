@@ -26,3 +26,4 @@ rootProject.name = "StarWars-MVI"
 include(":app")
 include(":core")
 include(":heroes:api")
+include(":heroes:impl")

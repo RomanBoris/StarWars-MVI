@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import com.pobezhkin.starwars_mvi.heroes.HeroesViewState
 import com.pobezhkin.starwars_mvi.heroes.HeroesViewState.StepViewState
 import com.pobezhkin.starwars_mvi.heroes.mvi.HeroesEffect
-import com.pobezhkin.starwars_mvi.ui.theme.StarWarsMVITheme
+import androidx.compose.material3.MaterialTheme
 
 @Composable
 fun ErrorContent(
@@ -54,7 +54,7 @@ private fun stubErrorViewState() = StepViewState.Error(
 @Preview(showBackground = true)
 @Composable
 private fun ErrorContentPreview() {
-    StarWarsMVITheme {
+    MaterialTheme  {
         ErrorContent(viewState = stubErrorViewState(), effect = {})
     }
 }

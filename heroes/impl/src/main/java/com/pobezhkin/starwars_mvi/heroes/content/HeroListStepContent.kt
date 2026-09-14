@@ -16,7 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.pobezhkin.starwars_mvi.heroes.HeroesViewState.StepViewState
 import com.pobezhkin.starwars_mvi.heroes.mvi.HeroesEffect
-import com.pobezhkin.starwars_mvi.ui.theme.StarWarsMVITheme
+import androidx.compose.material3.MaterialTheme
 import kotlinx.collections.immutable.persistentListOf
 
 @Composable
@@ -87,7 +87,7 @@ private fun stubHeroListViewState() =  StepViewState.HeroList(
 @Preview(showBackground = true)
 @Composable
 private fun HeroListStepContentPreview() {
-    StarWarsMVITheme {
+    MaterialTheme  {
         HeroListStepContent(viewState = stubHeroListViewState(), effect = {})
     }
 }

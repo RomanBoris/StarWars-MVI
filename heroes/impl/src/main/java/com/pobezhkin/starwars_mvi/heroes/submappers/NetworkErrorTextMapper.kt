@@ -1,7 +1,7 @@
 package com.pobezhkin.starwars_mvi.heroes.submappers
 
 import android.content.Context
-import com.pobezhkin.starwars_mvi.R
+import com.pobezhkin.starwars_mvi.heroes.R
 import com.pobezhkin.starwars_mvi.core.network.NetworkError
 
 class NetworkErrorTextMapper(

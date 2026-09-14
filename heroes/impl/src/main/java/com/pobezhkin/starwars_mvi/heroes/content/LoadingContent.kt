@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.pobezhkin.starwars_mvi.ui.theme.StarWarsMVITheme
+import androidx.compose.material3.MaterialTheme
 
 @Composable
 fun LoadingContent(modifier: Modifier = Modifier) {
@@ -22,7 +22,7 @@ fun LoadingContent(modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 private fun LoadingContentPreview() {
-    StarWarsMVITheme {
+    MaterialTheme  {
         LoadingContent()
     }
 }

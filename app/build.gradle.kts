@@ -42,10 +42,9 @@ android {
 dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.compose.material3)
-    implementation(libs.androidx.compose.ui)
-    implementation(libs.androidx.compose.ui.graphics)
-    implementation(libs.androidx.compose.ui.tooling.preview)
+
+
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     testImplementation(libs.junit)
@@ -58,7 +57,7 @@ dependencies {
 
     //Модули
     implementation(project(":core"))
-    implementation(project(":heroes:api"))
+    implementation(project(":heroes:impl"))
 
     // DI
     implementation(libs.dagger)
@@ -67,20 +66,6 @@ dependencies {
     // Fragment-хост для Compose
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.fragment.ktx)
-
-    // Стабильность коллекций для Compose
-    implementation(libs.kotlinx.collections.immutable)
-
-    // Сеть
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.converter.gson)
-    implementation(libs.okhttp)
-    implementation(libs.okhttp.logging.interceptor)
-
-    // Локальный кэш
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.ktx)
-    ksp(libs.androidx.room.compiler)
 
 
 }
