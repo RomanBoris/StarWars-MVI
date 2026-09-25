@@ -1,10 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.compose)
 }
 
-// Android SDK нужен только ради android.app.Application (ApplicationExt.kt) —
-// это единственная причина, почему этот код не может лежать в чистом ":core".
-// Модуль не знает ни про одну фичу: подключают его и ":app", и любой ":heroes:*"/будущий feature-модуль.
 android {
     namespace = "com.pobezhkin.starwars_mvi.core.android"
     compileSdk {
@@ -21,8 +19,15 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    buildFeatures {
+        compose = true
+    }
 }
 
 dependencies {
     api(project(":core"))
+
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.ui)
 }

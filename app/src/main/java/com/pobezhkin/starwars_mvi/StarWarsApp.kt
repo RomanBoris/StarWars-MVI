@@ -15,8 +15,6 @@ class StarWarsApp : Application(), ComponentProvider {
         appComponent = DaggerAppComponent.factory().create(this)
     }
 
-    // Сюда приходит Application.getComponent(HeroesApi::class.java) из HeroesFragment —
-    // ищем нужный компонент фичи в Map, которую собрал AppComponent.
     @Suppress("UNCHECKED_CAST")
     override fun <T : Component> get(type: Class<out T>): T =
         appComponent.components[type] as? T

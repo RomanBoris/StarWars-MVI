@@ -12,9 +12,6 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
-// Общие для всего приложения вещи: диспетчеры, логгер и репозиторий героев
-// (interface из heroes/api → implementation из heroes/data, собраны здесь, а не в фиче —
-// фиче Dagger отдаст уже готовый HeroesRepository через HeroesDependencies).
 @Module
 class AppModule {
 

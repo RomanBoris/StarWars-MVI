@@ -62,7 +62,10 @@ class HeroesRepositoryImpl(
 
         return when (result) {
             // Деталь кэш НЕ перезаписывает: хозяин кэша — только загрузка списка
-            is NetworkResult.Success -> result
+            is NetworkResult.Success -> NetworkResult.Success(
+                data = resolveHomeworldName(result.data),
+                fromCache = result.fromCache,
+            )
 
             is NetworkResult.Error -> when (result.error) {
                 is NetworkError.NoInternet -> {
@@ -77,6 +80,18 @@ class HeroesRepositoryImpl(
 
                 else -> result
             }
+        }
+    }
+
+    private suspend fun resolveHomeworldName(hero: StarHero): StarHero {
+        val planetResult = networkCall(
+            apiCall = { api.getPlanet(hero.homeworld) },
+            toDomain = { name.orEmpty() },   // this = StarPlanetDto
+            logger = logger,
+        )
+        return when (planetResult) {
+            is NetworkResult.Success -> hero.copy(homeworld = planetResult.data)
+            is NetworkResult.Error -> hero
         }
     }
 }

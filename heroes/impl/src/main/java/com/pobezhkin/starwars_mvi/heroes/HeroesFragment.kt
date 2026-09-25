@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.pobezhkin.starwars_mvi.core.android.theme.StarWarsMVITheme
 import com.pobezhkin.starwars_mvi.core.feature.getComponent
 import com.pobezhkin.starwars_mvi.heroes.api.HeroesApi
 
@@ -20,13 +21,13 @@ class HeroesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View = ComposeView(requireContext()).apply{
         setContent {
-            HeroesScreenContent(modifier = Modifier.systemBarsPadding(),
-                viewModel = viewModel)
+            StarWarsMVITheme {
+                HeroesScreenContent(modifier = Modifier.systemBarsPadding(),
+                    viewModel = viewModel)
+            }
         }
     }
 
-    // application.getComponent(HeroesApi::class.java) достаёт из Map в AppComponent компонент
-    // именно этой фичи — тот, что HeroesModule положил туда через @IntoMap/@ClassKey.
     private val viewModel: HeroesViewModel by lazy {
         ViewModelProvider(
             this,

@@ -13,4 +13,8 @@
     <string name="error_no_internet">Нет подключения к интернету</string>
     <string name="error_http">Ошибка сервера: %1$d</string>
     <string name="error_unknown">Что-то пошло не так</string>
+    <string name="hero_details_back">← Назад</string>
+    <string name="error_action_retry">Повторить</string>
+    <string name="error_action_back">Назад</string>
+    <string name="heroes_list_title">STAR WARS</string>
 </resources>

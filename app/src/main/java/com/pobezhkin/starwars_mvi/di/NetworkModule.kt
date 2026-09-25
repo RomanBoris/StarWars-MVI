@@ -9,8 +9,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-// Тот же стек, что был в HeroesFactory урока 12 (а до неё — в старом
-// StarWarsApp-master/di/NetworkModule.kt), просто теперь его строит Dagger, а не руки.
 @Module
 class NetworkModule {
 
