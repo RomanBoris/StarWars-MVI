@@ -6,6 +6,7 @@ plugins {
 dependencies {
     api(libs.kotlinx.coroutines.core)
     api(libs.retrofit)
+    api(libs.dagger)
 }
 
 java {
