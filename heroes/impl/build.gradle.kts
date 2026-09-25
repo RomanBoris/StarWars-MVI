@@ -27,7 +27,14 @@ android {
 
 dependencies {
     implementation(project(":core"))
-    implementation(project(":heroes:api"))
+    implementation(project(":core:android"))
+    // api, не implementation: HeroesRepositoryImpl публично реализует HeroesRepository
+    // (тип из :heroes:api), значит тип торчит наружу модуля — тот же принцип, что был
+    // с kotlinx-coroutines-core в :core на уроке 12.5.
+    api(project(":heroes:api"))
+
+    implementation(libs.dagger)
+    ksp(libs.dagger.compiler)
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.material3)

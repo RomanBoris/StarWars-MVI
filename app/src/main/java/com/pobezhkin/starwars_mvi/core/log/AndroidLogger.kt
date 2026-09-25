@@ -2,8 +2,7 @@ package com.pobezhkin.starwars_mvi.core.log
 
 import android.util.Log
 
-
-class AndroidLogger: AppLogger{
+class AndroidLogger : AppLogger {
     override fun logDebug(tag: String, message: String) {
         Log.d(tag, message)
     }

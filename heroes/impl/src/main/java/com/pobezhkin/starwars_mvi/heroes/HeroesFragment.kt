@@ -1,5 +1,6 @@
 package com.pobezhkin.starwars_mvi.heroes
 
+import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.pobezhkin.starwars_mvi.core.feature.getComponent
+import com.pobezhkin.starwars_mvi.heroes.api.HeroesApi
 
 class HeroesFragment : Fragment() {
     override fun onCreateView(
@@ -22,10 +25,16 @@ class HeroesFragment : Fragment() {
         }
     }
 
-    private val viewModel: HeroesViewModel by lazy{
+    // application.getComponent(HeroesApi::class.java) достаёт из Map в AppComponent компонент
+    // именно этой фичи — тот, что HeroesModule положил туда через @IntoMap/@ClassKey.
+    private val viewModel: HeroesViewModel by lazy {
         ViewModelProvider(
             this,
-            HeroesFactory(context = requireContext().applicationContext)
+            HeroesFactory(
+                factory = (requireContext().applicationContext as Application)
+                    .getComponent(HeroesApi::class.java)
+                    .heroesFactory,
+            )
         )[HeroesViewModel::class.java]
     }
 

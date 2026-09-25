@@ -25,5 +25,6 @@ dependencyResolutionManagement {
 rootProject.name = "StarWars-MVI"
 include(":app")
 include(":core")
+include(":core:android")
 include(":heroes:api")
 include(":heroes:impl")

@@ -57,6 +57,7 @@ dependencies {
 
     //Модули
     implementation(project(":core"))
+    implementation(project(":core:android"))
     implementation(project(":heroes:impl"))
 
     // DI
@@ -67,5 +68,12 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.fragment.ktx)
 
-
+    // NetworkModule/DatabaseModule — сеть и база собираются здесь, а не в :heroes:impl:
+    // retrofit сам приходит транзитивно из :core (там объявлен как api), а вот
+    // OkHttp/конвертер/Room-рантайм нужны здесь напрямую.
+    implementation(libs.retrofit.converter.gson)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging.interceptor)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
 }
